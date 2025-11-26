@@ -10,15 +10,17 @@
       ],
       "skills": [
         { "icon": "nf-dev-python", "name": "Python" },
-        { "icon": "nnf-dev-numpy", "name": "Numpy" },
+        { "icon": "nf-dev-numpy", "name": "Numpy" },
         { "icon": "nf-dev-pandas", "name": "Pandas" },
-        { "icon": "nf-dev-flask", "name": "Flask" },
+        { "icon": "nf-dev-pytorch", "name": "PyTorch"},
+        { "icon": "nf-dev-django", "name": "Django" },
         { "icon": "nf-dev-fastapi", "name": "FastAPI" },
         { "icon": "nf-dev-git", "name": "Git" },
         { "icon": "nf-fa-docker", "name": "Docker" },
         { "icon": "nf-dev-linux", "name": "Linux" },
         { "icon": "nf-dev-jupyter", "name": "Jupyter" },
-        { "icon": "nf-dev-postgresql", "name": "PostgreSQL" }
+        { "icon": "nf-dev-postgresql", "name": "PostgreSQL" },
+        { "icon": "nf-dev-mysql", "name": "MySQL"}
       ],
       "socialLinks": [
         { "url": "https://github.com/VanDung-dev/", "icon": "nf-fa-github", "name": "GitHub" },
@@ -37,15 +39,17 @@
       ],
       "skills": [
         { "icon": "nf-dev-python", "name": "Python" },
-        { "icon": "nnf-dev-numpy", "name": "Numpy" },
+        { "icon": "nf-dev-numpy", "name": "Numpy" },
         { "icon": "nf-dev-pandas", "name": "Pandas" },
-        { "icon": "nf-dev-flask", "name": "Flask" },
+        { "icon": "nf-dev-pytorch", "name": "PyTorch"},
+        { "icon": "nf-dev-django", "name": "Django" },
         { "icon": "nf-dev-fastapi", "name": "FastAPI" },
         { "icon": "nf-dev-git", "name": "Git" },
         { "icon": "nf-fa-docker", "name": "Docker" },
         { "icon": "nf-dev-linux", "name": "Linux" },
         { "icon": "nf-dev-jupyter", "name": "Jupyter" },
-        { "icon": "nf-dev-postgresql", "name": "PostgreSQL" }
+        { "icon": "nf-dev-postgresql", "name": "PostgreSQL" },
+        { "icon": "nf-dev-mysql", "name": "MySQL"}
       ],
       "socialLinks": [
         { "url": "https://github.com/VanDung-dev/", "icon": "nf-fa-github", "name": "GitHub" },
