@@ -24,12 +24,11 @@
 
 body {
   background: linear-gradient(135deg,
-  #0a5256 0%,
-  #0A1D56 25%,
-  #492E87 50%,
-  #37B5B6 75%,
-  #F2F597 100%
-  ) !important;
+      #0a5256 0%,
+      #0A1D56 25%,
+      #492E87 50%,
+      #37B5B6 75%,
+      #F2F597 100%) !important;
   color: var(--text-light);
   height: 100vh;
   display: flex;
@@ -99,54 +98,49 @@ body {
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
-.theme-default { 
-  background: linear-gradient(135deg, 
-    #0a5256 0%,
-    #0A1D56 25%, 
-    #492E87 50%, 
-    #37B5B6 75%, 
-    #F2F597 100%
-  ) !important; 
+.theme-default {
+  background: linear-gradient(135deg,
+      #0a5256 0%,
+      #0A1D56 25%,
+      #492E87 50%,
+      #37B5B6 75%,
+      #F2F597 100%) !important;
 }
 
-.theme-blue { 
-  background: linear-gradient(135deg, 
-    #180e54 0%,
-    #0E2954 25%, 
-    #1F6E8C 50%, 
-    #2E8A99 75%, 
-    #84A7A1 100%
-  ) !important; 
+.theme-blue {
+  background: linear-gradient(135deg,
+      #180e54 0%,
+      #0E2954 25%,
+      #1F6E8C 50%,
+      #2E8A99 75%,
+      #84A7A1 100%) !important;
 }
 
-.theme-red { 
-  background: linear-gradient(135deg, 
-    #2C2C2C 0%,
-    #522546 25%, 
-    #88304E 50%, 
-    #F7374F 75%, 
-    #f737a7 100%
-  ) !important; 
+.theme-red {
+  background: linear-gradient(135deg,
+      #2C2C2C 0%,
+      #522546 25%,
+      #88304E 50%,
+      #F7374F 75%,
+      #f737a7 100%) !important;
 }
 
-.theme-yellow { 
-  background: linear-gradient(135deg, 
-    #391d1d 0%,
-    #39311D 25%, 
-    #7E7474 50%, 
-    #C4B6B6 75%, 
-    #FFDD93 100%
-  ) !important; 
+.theme-yellow {
+  background: linear-gradient(135deg,
+      #391d1d 0%,
+      #39311D 25%,
+      #7E7474 50%,
+      #C4B6B6 75%,
+      #FFDD93 100%) !important;
 }
 
-.theme-green { 
-  background: linear-gradient(135deg, 
-    #0f231f 0%,
-    #18230F 25%, 
-    #27391C 50%, 
-    #255F38 75%, 
-    #1F7D53 100%
-  ) !important; 
+.theme-green {
+  background: linear-gradient(135deg,
+      #0f231f 0%,
+      #18230F 25%,
+      #27391C 50%,
+      #255F38 75%,
+      #1F7D53 100%) !important;
 }
 
 /* ======================== GNOME TOP BAR ======================== */
@@ -168,7 +162,8 @@ body {
   font-size: 14px;
 }
 
-.left-section, .right-section {
+.left-section,
+.right-section {
   display: flex;
   align-items: center;
   height: 100%;
@@ -262,8 +257,15 @@ body {
 }
 
 @keyframes restoreTerminal {
-  0% { transform: scale(0.1); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
+  0% {
+    transform: scale(0.1);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .container.restore {
@@ -321,7 +323,12 @@ body {
   display: none;
 }
 
-.container, .tab, .skill-tag, .project, .certificate, .contact-card {
+.container,
+.tab,
+.skill-tag,
+.project,
+.certificate,
+.contact-card {
   will-change: transform, opacity;
 }
 
@@ -341,8 +348,8 @@ body {
   width: 28px;
   height: 28px;
   background: transparent;
-  border-bottom: 5px solid rgba(255,255,255,0.3);
-  border-right: 5px solid rgba(255,255,255,0.3);
+  border-bottom: 5px solid rgba(255, 255, 255, 0.3);
+  border-right: 5px solid rgba(255, 255, 255, 0.3);
   border-bottom-right-radius: 18px;
   transform: rotate(0deg);
   pointer-events: auto;
@@ -419,9 +426,17 @@ body {
 }
 
 @keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.2); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
 
 .dock {
@@ -598,7 +613,11 @@ body {
   transform: translateY(-2px);
 }
 
-.tab, .skill-tag, .project, .certificate, .contact-card {
+.tab,
+.skill-tag,
+.project,
+.certificate,
+.contact-card {
   transition: all var(--transition-fast);
 }
 
@@ -670,11 +689,7 @@ body {
   flex-shrink: 0;
 }
 
-.bg-icon { background-color: #ddd; color: #000; }
-.green-bg { background-color: var(--manjaro-dark-green); color: #000; }
-.fg-icon { color: var(--manjaro-dark-green); }
-.white-fg { color: #ddd; }
-.green-edge { color: var(--manjaro-dark-green); }
+
 
 .zsh-unified {
   display: flex;
@@ -1048,8 +1063,15 @@ body {
 }
 
 @keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
 }
 
 .error {
@@ -1102,86 +1124,140 @@ img.lazy-load.loaded {
     box-shadow: none !important;
     opacity: 1 !important;
   }
-  
+
   .app-icon {
     width: 50px;
     height: 50px;
     bottom: 10px;
     right: 10px;
   }
-  
-  .app-icon i { font-size: 32px; }
-  .red-dot { width: 8px; height: 8px; }
-  .terminal-header { padding: 0 8px; gap: 5px; }
-  
+
+  .app-icon i {
+    font-size: 32px;
+  }
+
+  .red-dot {
+    width: 8px;
+    height: 8px;
+  }
+
+  .terminal-header {
+    padding: 0 8px;
+    gap: 5px;
+  }
+
   .zsh-unified {
     height: 14px;
     min-width: 83px;
     max-width: 160px;
     margin-right: 4px;
   }
-  
+
   .manjaro-icon-bg,
   .manjaro-file-bg {
     font-size: 7px;
     padding: 0 7px;
   }
-  
+
   .manjaro-icon-bg {
     border-radius: 4px 0 0 4px;
     width: 18px;
     min-width: 18px;
     font-size: 8px;
   }
-  
+
   .manjaro-file-bg {
     border-radius: 0 4px 4px 0;
   }
-  
-  .manjaro-file-bg i { margin-right: 2px; }
-  .container-title { font-size: 12px; left: 45%; }
-  .terminal-buttons .btn { width: 20px; height: 20px; font-size: 16px; }
-  .content { padding: 15px; font-size: 14px; }
-  
+
+  .manjaro-file-bg i {
+    margin-right: 2px;
+  }
+
+  .container-title {
+    font-size: 12px;
+    left: 45%;
+  }
+
+  .terminal-buttons .btn {
+    width: 20px;
+    height: 20px;
+    font-size: 16px;
+  }
+
+  .content {
+    padding: 15px;
+    font-size: 14px;
+  }
+
   .profile-header {
     flex-direction: column;
     text-align: center;
     gap: 15px;
   }
-  
+
   .avatar-container {
     width: 120px;
     height: 120px;
     margin: 0 auto;
   }
-  
-  .avatar { font-size: 50px; }
-  .name { font-size: 24px; }
-  .title { font-size: 18px; }
-  .skills { margin-top: 15px; }
-  .tab-title { font-size: 10px; }
+
+  .avatar {
+    font-size: 50px;
+  }
+
+  .name {
+    font-size: 24px;
+  }
+
+  .title {
+    font-size: 18px;
+  }
+
+  .skills {
+    margin-top: 15px;
+  }
+
+  .tab-title {
+    font-size: 10px;
+  }
+
   .command,
-  .terminal-input{ 
+  .terminal-input {
     font-size: 12px;
   }
+
   .about,
   .project-description,
   .certificate-desc,
   .contact-detail {
     font-size: 12px;
   }
-  
+
   .skill-tag {
     font-size: 16px;
     padding: 5px 10px;
     margin: 0 5px 8px 0;
   }
-  
-  .social-links { gap: 10px; margin-top: 15px; }
-  .social-link { font-size: 14px; padding: 8px 15px; }
-  .project-title { font-size: 18px; }
-  .contact-info { grid-template-columns: 1fr; }
-  
+
+  .social-links {
+    gap: 10px;
+    margin-top: 15px;
+  }
+
+  .social-link {
+    font-size: 14px;
+    padding: 8px 15px;
+  }
+
+  .project-title {
+    font-size: 18px;
+  }
+
+  .contact-info {
+    grid-template-columns: 1fr;
+  }
+
   .tabs-container {
     display: flex;
     flex-wrap: nowrap;
@@ -1192,9 +1268,11 @@ img.lazy-load.loaded {
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
   }
-  
-  .tabs-container::-webkit-scrollbar { display: none; }
-  
+
+  .tabs-container::-webkit-scrollbar {
+    display: none;
+  }
+
   .tab {
     flex: 1;
     min-width: 0;
@@ -1205,12 +1283,17 @@ img.lazy-load.loaded {
     overflow: hidden;
     text-overflow: ellipsis;
   }
-  
-  .output-line { flex-wrap: wrap; }
+
+  .output-line {
+    flex-wrap: wrap;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
-  .content { padding: 20px; font-size: 15px; }
+  .content {
+    padding: 20px;
+    font-size: 15px;
+  }
 
   .terminal-header {
     cursor: default !important;
@@ -1220,40 +1303,53 @@ img.lazy-load.loaded {
     box-shadow: none !important;
     opacity: 1 !important;
   }
-  
+
   .zsh-unified {
     height: 21px;
     min-width: 124px;
     max-width: 197px;
     margin-right: 6px;
   }
-  
+
   .manjaro-icon-bg,
   .manjaro-file-bg {
     font-size: 10px;
     padding: 0 10px;
   }
-  
+
   .manjaro-icon-bg {
     border-radius: 6px 0 0 6px;
     width: 27px;
     min-width: 27px;
     font-size: 12px;
   }
-  
-  .manjaro-file-bg { border-radius: 0 6px 6px 0; }
-  .manjaro-file-bg i { margin-right: 3px; }
-  
+
+  .manjaro-file-bg {
+    border-radius: 0 6px 6px 0;
+  }
+
+  .manjaro-file-bg i {
+    margin-right: 3px;
+  }
+
   .profile-header {
     flex-direction: column;
     text-align: center;
     gap: 20px;
   }
-  
-  .avatar-container { margin: 0 auto; }
-  .profile-info { min-width: 100%; }
-  .contact-info { grid-template-columns: repeat(2, 1fr); }
-  
+
+  .avatar-container {
+    margin: 0 auto;
+  }
+
+  .profile-info {
+    min-width: 100%;
+  }
+
+  .contact-info {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .tabs-container {
     display: flex;
     flex-wrap: nowrap;
@@ -1263,9 +1359,11 @@ img.lazy-load.loaded {
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
-  
-  .tabs-container::-webkit-scrollbar { display: none; }
-  
+
+  .tabs-container::-webkit-scrollbar {
+    display: none;
+  }
+
   .tab {
     flex: 1;
     min-width: 0;
@@ -1276,9 +1374,11 @@ img.lazy-load.loaded {
     overflow: hidden;
     text-overflow: ellipsis;
   }
-  
-  .output-line { flex-wrap: wrap; }
-  
+
+  .output-line {
+    flex-wrap: wrap;
+  }
+
   .certificate {
     padding: 12px 8px;
     border-radius: 5px;
@@ -1286,12 +1386,29 @@ img.lazy-load.loaded {
     max-width: 100%;
     font-size: 14px;
   }
-  
-  .certificate-title { font-size: 17px; gap: 5px; }
-  .certificate-org { font-size: 13px; gap: 4px; }
-  .certificate-date { font-size: 15px; }
-  .certificate-desc { font-size: 14px; padding-left: 14px; }
-  .certificate-desc:before { font-size: 13px; }
+
+  .certificate-title {
+    font-size: 17px;
+    gap: 5px;
+  }
+
+  .certificate-org {
+    font-size: 13px;
+    gap: 4px;
+  }
+
+  .certificate-date {
+    font-size: 15px;
+  }
+
+  .certificate-desc {
+    font-size: 14px;
+    padding-left: 14px;
+  }
+
+  .certificate-desc:before {
+    font-size: 13px;
+  }
 }
 
 @media (min-width: 1400px) {
@@ -1300,6 +1417,7 @@ img.lazy-load.loaded {
     margin: 0 auto;
   }
 }
+
 /* ======================== BOOT SCREEN ======================== */
 #boot-screen {
   position: fixed;
