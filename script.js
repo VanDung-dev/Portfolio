@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
             bootScreen.style.display = 'none';
             // Kích hoạt hoạt ảnh hiển thị thiết bị đầu cuối sau 3 giây
             setTimeout(() => {
-              openTerminal();
+              openTerminal(true);
             }, 3000);
           }, 800);
         }, 500);
@@ -701,7 +701,7 @@ document.addEventListener('DOMContentLoaded', function () {
     else minimizeTerminal();
   }
 
-  function openTerminal() {
+  function openTerminal(isBoot = false) {
     initLazyLoading()
     appIcon.style.display = 'none';
     terminalContainer.style.display = 'block';
@@ -711,15 +711,36 @@ document.addEventListener('DOMContentLoaded', function () {
 
     setTimeout(() => {
       terminalContainer.classList.remove('restore');
-      content.innerHTML = createTerminalInputHTML();
-      tabsContainer.style.display = 'none';
-      ContainerTitle.textContent = 'VanDung-dev@manjaro';
 
-      const input = content.querySelector('.terminal-input');
-      if (input) {
-        setupCursor(input);
-        input.addEventListener('keydown', handleTerminalInput);
-        input.focus();
+      if (isBoot) {
+        // Chế độ khởi động: Hiển thị nội dung hồ sơ đầy đủ
+        content.innerHTML = state.originalContent;
+        tabsContainer.style.display = 'flex';
+        ContainerTitle.textContent = 'VanDung-dev@manjaro: ~/profile';
+
+        // Chèn lại nội dung khi viết lại INNERHTML xóa dữ liệu động
+        updateAllContent();
+
+        // Đảm bảo tab "Trang chủ" và nội dung đang hoạt động
+        const firstTab = document.querySelector('.tab[data-tab="home"]');
+        if (firstTab) firstTab.classList.add('active');
+
+        const homeContent = document.getElementById('home-content');
+        if (homeContent) homeContent.classList.add('active');
+
+        startTypingAll();
+      } else {
+        // Chế độ thủ công: Hiển thị lời nhắc thiết bị đầu cuối trống
+        content.innerHTML = createTerminalInputHTML();
+        tabsContainer.style.display = 'none';
+        ContainerTitle.textContent = 'VanDung-dev@manjaro';
+
+        const input = content.querySelector('.terminal-input');
+        if (input) {
+          setupCursor(input);
+          input.addEventListener('keydown', handleTerminalInput);
+          input.focus();
+        }
       }
 
       state.isClosed = false;
