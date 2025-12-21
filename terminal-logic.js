@@ -57,49 +57,49 @@ const TerminalLogic = (function () {
 
     function createTerminalInputHTML_vi() {
         return `
-      <div class="content-section active" id="empty-content">
-        <div class="output">
-          <div class="command-output"></div>
-          <div class="output-line">
-            <div class="zsh-unified">
-              <span class="zsh-icon manjaro-icon-bg">
-                <i class="nf nf-linux-manjaro"></i>
-              </span>
-              <span class="zsh-file manjaro-file-bg">
-                <i class="nf nf-fa-home"></i>~
-              </span>
+        <div class="content-section active" id="empty-content">
+            <div class="output">
+                <div class="command-output"></div>
+                <div class="output-line">
+                    <div class="zsh-unified">
+                        <span class="zsh-icon manjaro-icon-bg">
+                            <i class="nf nf-linux-manjaro"></i>
+                        </span>
+                        <span class="zsh-file manjaro-file-bg">
+                            <i class="nf nf-fa-home"></i>~
+                        </span>
+                    </div>
+                    <div class="input-container">
+                        <span class="input-prompt"></span>
+                        <input type="text" class="terminal-input" placeholder="cd profile/ hoặc help" autofocus>
+                        <span class="custom-cursor"></span>
+                    </div>
+                </div>
             </div>
-            <div class="input-container">
-              <span class="input-prompt"></span>
-              <input type="text" class="terminal-input" placeholder="cd profile/ hoặc help" autofocus>
-              <span class="custom-cursor"></span>
-            </div>
-          </div>
-        </div>
-      </div>`;
+        </div>`;
     }
 
     function createTerminalInputHTML_en() {
         return `
     <div class="content-section active" id="empty-content">
-      <div class="output">
-        <div class="command-output"></div>
-        <div class="output-line">
-          <div class="zsh-unified">
-            <span class="zsh-icon manjaro-icon-bg">
-              <i class="nf nf-linux-manjaro"></i>
-            </span>
-            <span class="zsh-file manjaro-file-bg">
-              <i class="nf nf-fa-home"></i>~
-            </span>
-          </div>
-          <div class="input-container">
-            <span class="input-prompt"></span>
-            <input type="text" class="terminal-input" placeholder="cd profile/ or help" autofocus>
-            <span class="custom-cursor"></span>
-          </div>
+        <div class="output">
+            <div class="command-output"></div>
+            <div class="output-line">
+                <div class="zsh-unified">
+                    <span class="zsh-icon manjaro-icon-bg">
+                        <i class="nf nf-linux-manjaro"></i>
+                    </span>
+                    <span class="zsh-file manjaro-file-bg">
+                        <i class="nf nf-fa-home"></i>~
+                    </span>
+                </div>
+                <div class="input-container">
+                    <span class="input-prompt"></span>
+                    <input type="text" class="terminal-input" placeholder="cd profile/ or help" autofocus>
+                    <span class="custom-cursor"></span>
+                </div>
+            </div>
         </div>
-      </div>
     </div>`;
     }
 
@@ -124,11 +124,11 @@ const TerminalLogic = (function () {
             commandLineDiv.className = 'output-line';
             commandLineDiv.innerHTML = `
         <div class="zsh-unified">
-          <span class="zsh-icon manjaro-icon-bg"><i class="nf nf-linux-manjaro"></i></span>
-          <span class="zsh-file manjaro-file-bg"><i class="nf nf-fa-home"></i>~</span>
+            <span class="zsh-icon manjaro-icon-bg"><i class="nf nf-linux-manjaro"></i></span>
+            <span class="zsh-file manjaro-file-bg"><i class="nf nf-fa-home"></i>~</span>
         </div>
         <span class="command">${escapeHtml(command)}</span>
-      `;
+        `;
             outputDiv.appendChild(commandLineDiv);
 
             if (!isValidCommand(command)) {
@@ -281,9 +281,6 @@ const TerminalLogic = (function () {
         }
         printNext();
     }
-
-    // helpOutputVi and helpOutputEn removed since they are now loaded from content
-
 
     return {
         init,
