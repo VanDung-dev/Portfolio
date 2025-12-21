@@ -11,7 +11,8 @@ const TerminalLogic = (function () {
             updateAllContent: null,
             startTypingAll: null,
             handleError: null
-        }
+        },
+        content: null // Lưu trữ nội dung đã tải tại đây
     };
 
     const startTime = Date.now();
@@ -19,7 +20,10 @@ const TerminalLogic = (function () {
 
     function init(dependencies) {
         config = { ...config, ...dependencies };
-        // Bind methods if necessary, though simpler to just use config object
+    }
+
+    function loadContent(data) {
+        config.content = data;
     }
 
     function escapeHtml(unsafe) {
@@ -36,6 +40,13 @@ const TerminalLogic = (function () {
         // Chỉ cho phép các ký tự an toàn
         const safeChars = /^[a-zA-Z0-9\s\-_\/\.\?\&\=\+\*\@\#\!\,:;'"\(\)\{\}\[\]\^\$\|~`]+$/;
         return safeChars.test(command) && command.length <= 100;
+    }
+
+    // Trình trợ giúp để lấy nội dung chuỗi từ mảng hoặc chuỗi
+    function getContentString(content) {
+        if (!content) return '';
+        if (Array.isArray(content)) return content.join('\n');
+        return content;
     }
 
     function createTerminalInputHTML() {
@@ -182,47 +193,26 @@ const TerminalLogic = (function () {
             }
         } else if (command === 'neofetch') {
             const uptime = calculateUptime();
-            outputDiv.innerHTML += `
-        <div class="neofetch-output">
-  ██████████████████  ████████  VanDung-dev@manjaro 
-  ██████████████████  ████████  ----------------- 
-  ██████████████████  ████████  OS: Manjaro Linux x86_64 
-  ██████████████████  ████████  Host: ASUS TUF Gaming A16 FA617NS
-  ████████            ████████  Kernel: 6.6.10-1-MANJARO 
-  ████████  ████████  ████████  Uptime: ${uptime}
-  ████████  ████████  ████████  Packages: 1250 (pacman), 12 (flatpak) 
-  ████████  ████████  ████████  Shell: zsh 5.9 
-  ████████  ████████  ████████  Resolution: 1920x1080 
-  ████████  ████████  ████████  DE: GNOME 45.2 
-  ████████  ████████  ████████  WM: Mutter 
-  ████████  ████████  ████████  WM Theme: Adwaita 
-  ████████  ████████  ████████  Theme: adw-gtk3-dark [GTK2/3] 
-  ████████  ████████  ████████  Icons: Papirus-Dark-Maia [GTK2/3] 
-                                Terminal: gnome-terminal 
-                                CPU: AMD Ryzen 7 7735HS (16) @ 4.75GHz 
-                                GPU: AMD ATI Radeon RX 7600S 
-                                Memory: 6200MiB / 16384MiB 
-        </div>`;
+            if (config.content && config.content.neofetch) {
+                const neofetchContent = getContentString(config.content.neofetch);
+                outputDiv.innerHTML += neofetchContent.replace('{{uptime}}', uptime);
+            } else {
+                outputDiv.innerHTML += `<div class="error">Neofetch content not loaded</div>`;
+            }
         } else if (command === 'ls' || command === 'ls -la' || command === 'll') {
-            outputDiv.innerHTML += `
-      <div class="ls-output">
-        <span class="dir">profile</span> <span class="file">README.md</span>
-      </div>`;
+            outputDiv.innerHTML += getContentString(config.content?.ls) || 'ls';
         } else if (command === 'clear') {
             outputDiv.innerHTML = '';
         } else if (command === 'python --version') {
-            outputDiv.innerHTML += `<div class="python-version-output">Python 3.12.1</div>`;
+            outputDiv.innerHTML += getContentString(config.content?.pythonVersion) || 'Python 3.12.1';
         } else if (command === 'git status') {
-            outputDiv.innerHTML += `
-      <div class="git-status-output">
-      On branch main<br>
-      Your branch is up to date with 'origin/main'.<br>
-      nothing to commit, working tree clean
-      </div>`;
+            outputDiv.innerHTML += getContentString(config.content?.gitStatus) || 'On branch main';
         } else if (command === 'sudo pacman -Syu') {
             runPacmanPhase1(outputDiv, input);
         } else if (command === 'help') {
-            outputDiv.innerHTML += config.state.currentLanguage === 'vi' ? helpOutputVi() : helpOutputEn();
+            outputDiv.innerHTML += config.state.currentLanguage === 'vi'
+                ? (getContentString(config.content?.help?.vi) || 'Help')
+                : (getContentString(config.content?.help?.en) || 'Help');
         } else {
             outputDiv.innerHTML += `<div class="error">zsh: command not found: ${escapeHtml(command)}</div>`;
         }
@@ -246,23 +236,7 @@ const TerminalLogic = (function () {
         outputDiv.innerHTML += `<div class="updating-output" id="updating-output-${Date.now()}"></div>`;
         const outputId = outputDiv.lastElementChild.id;
 
-        const lines = [
-            '[sudo] password for VanDung-dev: **********',
-            ':: Synchronizing package databases...',
-            ' core is up to date',
-            ' extra is up to date',
-            ' community is up to date',
-            ' multilib is up to date',
-            ':: Starting full system upgrade...',
-            ' resolving dependencies...',
-            ' looking for conflicting packages...',
-            ' Packages (5) linux-6.6.10  python-3.12.1  zsh-5.9.1  nano-7.2  git-2.44.0',
-            '',
-            'Total Download Size:    145.20 MiB',
-            'Total Installed Size:   512.50 MiB',
-            'Net Upgrade Size:       12.30 MiB',
-            ''
-        ];
+        const lines = config.content?.pacman?.phase1 || [];
 
         let idx = 0;
         function printNext() {
@@ -289,28 +263,7 @@ const TerminalLogic = (function () {
         outputDiv.innerHTML += `<div class="updating-output" id="updating-output-phase2-${Date.now()}"></div>`;
         const outputId = outputDiv.lastElementChild.id;
 
-        const lines = [
-            ':: Retrieving packages...',
-            ' linux-6.6.10-1-x86_64     120.5 MiB  12.5 MiB/s  00:10 [######################] 100%',
-            ' python-3.12.1-1-x86_64     20.2 MiB  10.1 MiB/s  00:02 [######################] 100%',
-            '(5/5) checking keys in keyring                         [######################] 100%',
-            '(5/5) checking package integrity                       [######################] 100%',
-            '(5/5) loading package files                            [######################] 100%',
-            '(5/5) checking for file conflicts                      [######################] 100%',
-            '(5/5) checking available disk space                    [######################] 100%',
-            ':: Processing package changes...',
-            '(1/5) upgrading linux                                  [######################] 100%',
-            '(2/5) upgrading python                                 [######################] 100%',
-            '(3/5) upgrading zsh                                    [######################] 100%',
-            '(4/5) upgrading nano                                   [######################] 100%',
-            '(5/5) upgrading git                                    [######################] 100%',
-            ':: Running post-transaction hooks...',
-            '(1/3) Arming ConditionNeedsUpdate...',
-            '(2/3) Updating icon theme caches...',
-            '(3/3) Updating the desktop file MIME type cache...',
-            '',
-            'System updated successfully!'
-        ];
+        const lines = config.content?.pacman?.phase2 || [];
 
         let idx = 0;
         config.state.interaction = null; // Clear interaction state
@@ -329,36 +282,12 @@ const TerminalLogic = (function () {
         printNext();
     }
 
-    function helpOutputVi() {
-        return `<div class="help-output">
-      <strong>Các lệnh có thể dùng:</strong>
-      <ul>
-        <li><code>cd profile/</code> - Chuyển thư mục profile</li>
-        <li><code>ls</code> - Liệt kê file/thư mục</li>
-        <li><code>clear</code> - Xóa màn hình terminal</li>
-        <li><code>neofetch</code> - Hiện thông tin hệ thống</li>
-        <li><code>python --version</code> - Xem phiên bản Python</li>
-        <li><code>help</code> - Hiện hướng dẫn này</li>
-      </ul>
-    </div>`;
-    }
+    // helpOutputVi and helpOutputEn removed since they are now loaded from content
 
-    function helpOutputEn() {
-        return `<div class="help-output">
-      <strong>Available Commands:</strong>
-      <ul>
-        <li><code>cd</code> - Change directory</li>
-        <li><code>ls</code> - List files</li>
-        <li><code>clear</code> - Clear the terminal</li>
-        <li><code>neofetch</code> - Display system information</li>
-        <li><code>python --version</code> - Show Python version</li>
-        <li><code>help</code> - Show this help message</li>
-      </ul>
-    </div>`;
-    }
 
     return {
         init,
+        loadContent,
         handleTerminalInput,
         createTerminalInputHTML
     };

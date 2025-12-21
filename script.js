@@ -168,6 +168,14 @@ document.addEventListener('DOMContentLoaded', function () {
         handleError: handleError
       }
     });
+
+    // Tải nội dung terminal
+    fetch('terminal-content.json')
+      .then(response => response.json())
+      .then(data => {
+        TerminalLogic.loadContent(data);
+      })
+      .catch(error => handleError(error, 'loading terminal content'));
   }
 
   // ======================== TẢI NỘI DUNG ========================
