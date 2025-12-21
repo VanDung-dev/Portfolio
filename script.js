@@ -799,6 +799,7 @@ document.addEventListener('DOMContentLoaded', function () {
     return `
       <div class="content-section active" id="empty-content">
         <div class="output">
+          <div class="command-output"></div>
           <div class="output-line">
             <div class="zsh-unified">
               <span class="zsh-icon manjaro-icon-bg">
@@ -814,7 +815,6 @@ document.addEventListener('DOMContentLoaded', function () {
               <span class="custom-cursor"></span>
             </div>
           </div>
-          <div class="command-output"></div>
         </div>
       </div>`;
   }
@@ -823,6 +823,7 @@ document.addEventListener('DOMContentLoaded', function () {
     return `
     <div class="content-section active" id="empty-content">
       <div class="output">
+        <div class="command-output"></div>
         <div class="output-line">
           <div class="zsh-unified">
             <span class="zsh-icon manjaro-icon-bg">
@@ -838,7 +839,6 @@ document.addEventListener('DOMContentLoaded', function () {
             <span class="custom-cursor"></span>
           </div>
         </div>
-        <div class="command-output"></div>
       </div>
     </div>`;
   }
