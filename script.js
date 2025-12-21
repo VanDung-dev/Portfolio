@@ -150,18 +150,7 @@ document.addEventListener('DOMContentLoaded', function () {
     updateClock();
     setInterval(updateClock, 60000);
 
-    // Đăng ký service worker để caching
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', function () {
-        navigator.serviceWorker.register('/sw.js')
-          .then(function (registration) {
-            console.log('ServiceWorker registration successful with scope: ', registration.scope);
-          })
-          .catch(function (err) {
-            console.log('ServiceWorker registration failed: ', err);
-          });
-      });
-    }
+
   }
 
   // ======================== TẢI NỘI DUNG ========================
@@ -1315,7 +1304,6 @@ document.addEventListener('DOMContentLoaded', function () {
     initLazyLoading()
     state.currentLanguage = lang;
     localStorage.setItem('language', lang);
-    // Lưu ngôn ngữ vào cookies để service worker có thể truy cập
     document.cookie = `language=${lang}; path=/; max-age=31536000`; // 1 năm
 
     document.querySelectorAll('.lang-content').forEach(content => {
@@ -1557,12 +1545,7 @@ document.addEventListener('DOMContentLoaded', function () {
   initialize();
   initLazyLoading();
 
-  function animateClock() {
-    updateClock();
-    const id = requestAnimationFrame(animateClock);
-    animationFrameIds.push(id);
-  }
-  animateClock();
+
 
   // Thêm hàm xử lý lỗi hình ảnh
   function handleImageError(img) {
