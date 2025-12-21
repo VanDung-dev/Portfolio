@@ -1300,3 +1300,65 @@ img.lazy-load.loaded {
     margin: 0 auto;
   }
 }
+/* ======================== BOOT SCREEN ======================== */
+#boot-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  color: #fff;
+  z-index: 99999;
+  font-family: 'Terminus', 'Courier New', monospace;
+  overflow: hidden;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  font-size: 14px;
+  line-height: 1.4;
+  cursor: none;
+}
+
+.boot-content {
+  width: 100%;
+  max-width: 800px;
+}
+
+.boot-line {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2px;
+  white-space: nowrap;
+  opacity: 0.9;
+}
+
+.boot-status {
+  font-weight: bold;
+  margin-right: 10px;
+  min-width: 60px;
+  text-align: center;
+}
+
+.status-ok {
+  color: #00ff00;
+}
+
+.status-fail {
+  color: #ff0000;
+}
+
+.status-info {
+  color: #34be5b;
+}
+
+.boot-message {
+  color: #ccc;
+}
+
+.boot-highlight {
+  color: white;
+  font-weight: bold;
+}

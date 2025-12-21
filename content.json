@@ -62,6 +62,13 @@
   "projects": {
     "vi": [
       {
+        "icon": "nf-fa-cubes",
+        "title": "HieraChain",
+        "description": "Hệ thống Blockchain doanh nghiệp phân quyền đa tầng, tập trung vào tính bảo mật, hiệu suất và khả năng mở rộng cho các ứng dụng thực tế. Được thiết kế để quản lý dữ liệu phi tập trung mà không phụ thuộc vào tiền mã hóa.",
+        "githubUrl": "https://github.com/VanDung-dev/HieraChain",
+        "githubText": "Xem mã nguồn trên GitHub"
+      },
+      {
         "icon": "nf-fa-chess",
         "title": "Game Cờ Vua Python",
         "description": "Ứng dụng game cờ vua đa nền tảng sử dụng PyGame với giao diện đồ họa 2D cơ bản. Hỗ trợ cả chế độ chơi hai người và chơi với máy ở nhiều cấp độ khó. Tính năng nổi bật: Gợi ý nước đi bằng thuật toán Minimax, undo/redo, và mô hình cờ vua tự phát triển không dựa trên PyChess.",
@@ -84,6 +91,13 @@
       }
     ],
     "en": [
+      {
+        "icon": "nf-fa-cubes",
+        "title": "HieraChain",
+        "description": "A multi-tier decentralized enterprise blockchain system, focusing on security, performance, and scalability for real-world applications. Designed for decentralized data management without reliance on cryptocurrency.",
+        "githubUrl": "https://github.com/VanDung-dev/HieraChain",
+        "githubText": "View source on GitHub"
+      },
       {
         "icon": "nf-fa-chess",
         "title": "Python Chess Game",
