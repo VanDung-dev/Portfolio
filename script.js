@@ -94,9 +94,10 @@ document.addEventListener('DOMContentLoaded', function () {
           bootScreen.style.opacity = '0';
           setTimeout(() => {
             bootScreen.style.display = 'none';
-            // Trigger the terminal show animation
-            terminalContainer.classList.remove('restore');
-            startTypingAll();
+            // Kích hoạt hoạt ảnh hiển thị thiết bị đầu cuối sau 3 giây
+            setTimeout(() => {
+              openTerminal();
+            }, 3000);
           }, 800);
         }, 500);
       } else {
@@ -121,19 +122,20 @@ document.addEventListener('DOMContentLoaded', function () {
     const savedLang = localStorage.getItem('language') || 'vi';
     setLanguage(savedLang);
 
-    terminalContainer.style.display = 'block';
-    terminalContainer.classList.add('restore');
+    terminalContainer.style.display = 'none';
 
-    appIcon.style.display = 'none';
-    redDot.style.display = 'none';
-    redDot.classList.remove('visible');
-    dockRedDot.style.display = 'none';
-    dockRedDot.classList.remove('visible');
+    appIcon.style.display = 'flex';
+    redDot.style.display = 'block';
+    redDot.classList.add('visible');
+    dockRedDot.style.display = 'block';
+    dockRedDot.classList.add('visible');
 
-    dock.classList.add('hidden');
+    dock.classList.remove('hidden');
 
-    state.isMinimized = false;
-    state.isClosed = false;
+    state.isMinimized = true; // Đặt trạng thái ban đầu là thu nhỏ/đóng hiệu quả
+    state.isClosed = true;
+
+
 
     // Bắt đầu quá trình khởi động ngay lập tức
     runBootSequence();
