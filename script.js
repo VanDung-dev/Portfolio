@@ -26,8 +26,6 @@ document.addEventListener('DOMContentLoaded', function () {
     interaction: null // Trạng thái tương tác (ví dụ: chờ xác nhận Y/n)
   };
 
-
-
   // ======================== QUÁ TRÌNH KHỞI ĐỘNG ========================
   function runBootSequence() {
     const bootScreen = document.getElementById('boot-screen');
@@ -97,10 +95,10 @@ document.addEventListener('DOMContentLoaded', function () {
           bootScreen.style.opacity = '0';
           setTimeout(() => {
             bootScreen.style.display = 'none';
-            // Kích hoạt hoạt ảnh hiển thị thiết bị đầu cuối sau 3 giây
+            // Kích hoạt hoạt ảnh hiển thị thiết bị đầu cuối sau 1 giây
             setTimeout(() => {
               openTerminal(true);
-            }, 3000);
+            }, 1000);
           }, 800);
         }, 500);
       } else {
@@ -137,8 +135,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     state.isMinimized = true; // Đặt trạng thái ban đầu là thu nhỏ/đóng hiệu quả
     state.isClosed = true;
-
-
 
     // Bắt đầu quá trình khởi động ngay lập tức
     runBootSequence();
@@ -792,20 +788,9 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // ======================== NỘI DUNG TERMINAL ========================
-
-
-
-
   function handleError(error, context = '') {
     console.error(`Error${context ? ` in ${context}` : ''}:`, error);
   }
-
-
-
-
-
-
-
 
   function handleTerminalInput(event) {
     try {
@@ -870,14 +855,6 @@ document.addEventListener('DOMContentLoaded', function () {
     input.value = '';
     content.scrollTop = content.scrollHeight;
   }
-
-
-
-
-
-
-
-
 
   // ======================== CÁC HÀM HỖ TRỢ UI ========================
   let tempSpan = null;
