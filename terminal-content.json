@@ -23,7 +23,7 @@
     ],
     "ls": [
         "<div class=\"ls-output\">",
-        "  <span class=\"dir\">profile</span> <span class=\"file\">README.md</span>",
+        "  <span class=\"dir\">portfolio</span> <span class=\"file\">README.md</span>",
         "</div>"
     ],
     "pythonVersion": [
@@ -41,7 +41,7 @@
             "<div class=\"help-output\">",
             "  <strong>Các lệnh có thể dùng:</strong>",
             "  <ul>",
-            "    <li><code>cd profile/</code> - Chuyển thư mục profile</li>",
+            "    <li><code>cd portfolio/</code> - Chuyển thư mục portfolio</li>",
             "    <li><code>ls</code> - Liệt kê file/thư mục</li>",
             "    <li><code>clear</code> - Xóa màn hình terminal</li>",
             "    <li><code>neofetch</code> - Hiện thông tin hệ thống</li>",

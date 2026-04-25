@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', function () {
       document.querySelector('.gnome-bar').style.display = 'none';
     }
 
-    ContainerTitle.textContent = 'VanDung-dev@manjaro: ~/profile';
+    ContainerTitle.textContent = 'VanDung-dev@manjaro: ~/portfolio';
     initTheme();
 
     const savedLang = localStorage.getItem('language') || 'vi';
@@ -203,17 +203,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Cập nhật nội dung trang chủ từ dữ liệu JSON
   function updateHomeContent() {
-    if (!state.contentData.profile) return;
-
-    const viContent = state.contentData.profile.vi;
-    const enContent = state.contentData.profile.en;
+    if (!state.contentData.portfolio) return;
+    const viContent = state.contentData.portfolio.vi;
+    const enContent = state.contentData.portfolio.en;
 
     const viHomeSection = document.querySelector('#home-content .lang-content.lang-vi');
     const enHomeSection = document.querySelector('#home-content .lang-content.lang-en');
 
     if (viHomeSection) {
       viHomeSection.innerHTML = `
-        <div class="profile-header">
+        <div class="portfolio-header">
           <div class="avatar-container">
             <div class="avatar">
               <img 
@@ -225,7 +224,7 @@ document.addEventListener('DOMContentLoaded', function () {
               >
             </div>
           </div>
-          <div class="profile-info">
+          <div class="portfolio-info">
             <div class="name">${viContent.name}</div>
             <div class="title">${viContent.title}</div>
             <div class="about">
@@ -255,7 +254,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (enHomeSection) {
       enHomeSection.innerHTML = `
-        <div class="profile-header">
+        <div class="portfolio-header">
           <div class="avatar-container">
             <div class="avatar">
               <img 
@@ -267,7 +266,7 @@ document.addEventListener('DOMContentLoaded', function () {
               >
             </div>
           </div>
-          <div class="profile-info">
+          <div class="portfolio-info">
             <div class="name">${enContent.name}</div>
             <div class="title">${enContent.title}</div>
             <div class="about">
@@ -726,7 +725,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // Chế độ khởi động: Hiển thị nội dung hồ sơ đầy đủ
         content.innerHTML = state.originalContent;
         tabsContainer.style.display = 'flex';
-        ContainerTitle.textContent = 'VanDung-dev@manjaro: ~/profile';
+        ContainerTitle.textContent = 'VanDung-dev@manjaro: ~/portfolio';
 
         // Chèn lại nội dung khi viết lại INNERHTML xóa dữ liệu động
         updateAllContent();
@@ -779,7 +778,7 @@ document.addEventListener('DOMContentLoaded', function () {
       if (state.minimizedContent) {
         content.innerHTML = state.minimizedContent;
         ContainerTitle.textContent = state.minimizedTitle;
-        tabsContainer.style.display = state.minimizedTitle.includes('profile') ? 'flex' : 'none';
+        tabsContainer.style.display = state.minimizedTitle.includes('portfolio') ? 'flex' : 'none';
         startTypingAll();
       }
 
@@ -997,7 +996,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const section = document.getElementById(`${tabName}-content`);
     if (section) {
       section.classList.add('active');
-      ContainerTitle.textContent = 'VanDung-dev@manjaro: ~/profile';
+      ContainerTitle.textContent = 'VanDung-dev@manjaro: ~/portfolio';
       startTypingAll();
     }
   }
@@ -1021,7 +1020,7 @@ document.addEventListener('DOMContentLoaded', function () {
     "python main.py ",
     "git status ",
     "git add . ",
-    "git commit -m 'Update profile' ",
+    "git commit -m 'Update portfolio' ",
     "git push ",
     "python chess_game.py ",
     "python discord_bot.py ",

@@ -71,7 +71,7 @@ const TerminalLogic = (function () {
                     </div>
                     <div class="input-container">
                         <span class="input-prompt"></span>
-                        <input type="text" class="terminal-input" placeholder="cd profile/ hoặc help" autofocus>
+                        <input type="text" class="terminal-input" placeholder="cd portfolio/ hoặc help" autofocus>
                         <span class="custom-cursor"></span>
                     </div>
                 </div>
@@ -95,7 +95,7 @@ const TerminalLogic = (function () {
                 </div>
                 <div class="input-container">
                     <span class="input-prompt"></span>
-                    <input type="text" class="terminal-input" placeholder="cd profile/ or help" autofocus>
+                    <input type="text" class="terminal-input" placeholder="cd portfolio/ or help" autofocus>
                     <span class="custom-cursor"></span>
                 </div>
             </div>
@@ -172,10 +172,10 @@ const TerminalLogic = (function () {
     }
 
     function executeCommand(command, outputDiv, input) {
-        if (command === 'cd profile/') {
+        if (command === 'cd portfolio/') {
             config.ui.content.innerHTML = config.state.originalContent;
             config.ui.tabsContainer.style.display = 'flex';
-            config.ui.containerTitle.textContent = 'VanDung-dev@manjaro: ~/profile';
+            config.ui.containerTitle.textContent = 'VanDung-dev@manjaro: ~/portfolio';
 
             config.callbacks.initLazyLoading();
             config.callbacks.updateAllContent();
