@@ -1,4 +1,4 @@
-# 🖥️ VanDung-dev – Hồ sơ cá nhân dưới dạng Terminal Gnome Manjaro
+# 🖥️ VanDung-dev – Portfolio dưới dạng Terminal Gnome Manjaro
 
 > Một trải nghiệm tương tác hóa để giới thiệu lập trình viên như một kỹ sư Linux thực thụ.
 
@@ -6,7 +6,7 @@
 
 ## 🚀 Giới thiệu
 
-Dự án **Profile-web** là một **hồ sơ cá nhân** (personal profile) được thiết kế theo phong cách **terminal Gnome trên hệ điều hành Manjaro Linux**. Giao diện mô phỏng dòng lệnh thực tế, đi kèm hiệu ứng hoạt họa, tab nội dung động, đa ngôn ngữ và khả năng tương tác, giúp bạn tiếp cận người xem bằng một phong cách kỹ thuật và độc đáo.
+Dự án **Portfolio** là một **hồ sơ cá nhân** (personal profile) được thiết kế theo phong cách **terminal Gnome trên hệ điều hành Manjaro Linux**. Giao diện mô phỏng dòng lệnh thực tế, đi kèm hiệu ứng hoạt họa, tab nội dung động, đa ngôn ngữ và khả năng tương tác, giúp bạn tiếp cận người xem bằng một phong cách kỹ thuật và độc đáo.
 
 ---
 ![Demo](images/demo.png)
